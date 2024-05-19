@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="sm_menu_root"
+              name="Quản lý sinh viên"
+              sequence="10"/>
+
+    <menuitem id="sm_menu_category"
+              name="Danh mục"
+              parent="sm_menu_root"
+              sequence="10"/>
+
+    <menuitem id="sm_menu_voucher"
+              name="Quản lý"
+              parent="sm_menu_root"
+              sequence="10"/>
+
+    <menuitem id="sm_menu_category_student_list"
+              name="Thông tin sinh viên"
+              parent="sm_menu_category"
+              sequence="10"/>
+
+</odoo>

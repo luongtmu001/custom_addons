@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_sm_student_list_form">
+        <field name="name">Thông tin sinh viên</field>
+        <field name="model">sm.student.list</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="image" widget='image' class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="birthday"/>
+                            <field name="sex"/>
+                            <field name="home_town"/>
+                            <field name="address"/>
+                            <field name="phone"/>
+                            <field name="class_no"/>
+                        </group>
+                        <group>
+                            <field name="id_card_no"/>
+                            <field name="id_card_date"/>
+                            <field name="id_card_place"/>
+                            <field name="email"/>
+                            
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_list_tree">
+        <field name="name">Danh sách sinh viên</field>
+        <field name="model">sm.student.list</field>
+        <field name="arch" type="xml">
+            <form>
+                <tree>
+                    <field name="image" widget='image' class="oe_avatar"/>
+                    <field name="code"/>
+                    <field name="name"/>
+                    <field name="class_no"/>
+                    <field name="birthday"/>
+                    <field name="sex"/>
+                    <field name="home_town"/>
+                    <field name="address"/>
+                    <field name="phone"/>
+                    <field name="id_card_no"/>
+                    <field name="id_card_date"/>
+                    <field name="id_card_place"/>
+                    <field name="email"/>
+
+                </tree>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_list_search">
+        <field name="name">sm.student.list.search</field>
+        <field name="model">sm.student.list</field>
+        <field name="arch" type="xml">
+            <search string="sm_student_list">
+                <field name="name"/>
+                <field name="code"/>
+                <separator/>
+                <!--searchpanel>
+                    <field name="class_no" string="Lớp hành chính" enable_counter="1"/>
+                </searchpanel-->
+            </search>
+
+        </field>
+    </record>
+    <!-- Tạo action -->
+    <record id="action_sm_student_list_view" model="ir.actions.act_window">
+        <field name="name">Danh sách sinh viên</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sm.student.list</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem id="sm_menu_category_student_list"
+              name="Thông tin sinh viên"
+              parent="sm_menu_category"
+              action="action_sm_student_list_view"
+              sequence="10"/>
+</odoo>
