@@ -20,4 +20,9 @@
               parent="sm_menu_category"
               sequence="10"/>
 
+    <menuitem id="sm_menu_category_schoolyear"
+              name="Niên khóa"
+              parent="sm_menu_category"
+              sequence="10"/>          
+
 </odoo>
