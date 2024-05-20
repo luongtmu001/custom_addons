@@ -7,7 +7,7 @@ class studentManagementDept(models.Model):
     _inherit = 'sm.category' # _inherits là đa kế thừa, _inherit là đơn kế thừa
     _description = "Khoa"
 
-    FoundedYear = fields.Integer(string="Thời năm thành lập", required=True)
+    FoundedYear = fields.Integer(string="Thời  gian thành lập", required=True)
 
 
 
