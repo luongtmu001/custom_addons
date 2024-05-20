@@ -1,6 +1,6 @@
 from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
-import  re
+import re
 
 STUDENT_CODE_REGEX = re.compile(r'^[A-Za-z0-9.]+$')
 
@@ -38,5 +38,3 @@ class studentManagementStudentList(models.Model):
                 rec.code = rec.code.upper()
             else:
                 rec.code = ''
-
-

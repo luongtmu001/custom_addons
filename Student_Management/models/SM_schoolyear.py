@@ -4,18 +4,18 @@ import re
 
 SCHOOL_YEAR_CODE_REGEX = re.compile(r'^[A-Za-z0-9.]+$')
 
-class studentManagementStudentList(models.Model):
+class studentManagementSchoolYear(models.Model):
     _name = "sm.schoolyear"
     _inherit = 'mail.thread'
     _description = "Danh sách khóa học"
 
-    code = fields.Char(size=64,string= "Mã khóa học", required = True,tracking=True)
+    code = fields.Char(size=64,string= "Mã khóa học", required = True,tracking=True, compute='_check_schoolyear_code')
     name = fields.Char(string= "Tên khóa học", required=True)
     start_year = fields.Date(string="Thời gian bắt đầu", required=True)
     end_year = fields.Date(string="Thời gian bắt đầu", required=True)
 
-    @api.onchange(code)
-    def _check_student_code(self):
+    @api.depends('code')
+    def _check_schoolyear_code(self):
         for sy in self:
             if not re.match(SCHOOL_YEAR_CODE_REGEX, sy.code):
                 raise ValidationError(_(

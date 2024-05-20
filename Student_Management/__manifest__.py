@@ -11,7 +11,7 @@
         'views/sm_menu.xml',
         'views/sm_student_list_view.xml',
         'views/sm_schoolyear_view.xml',
-
+        'views/sm_student_dept.xml',
     ],
     'application': True
 

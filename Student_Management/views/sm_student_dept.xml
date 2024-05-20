@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_sm_student_dept_form">
+        <field name="name">Khoa</field>
+        <field name="model">sm.student.dept</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code" />
+                        <field name="name" />
+                        <field name="FoundedYear" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_dept_tree">
+        <field name="name">Danh sách khoa</field>
+        <field name="model">sm.student.dept</field>
+        <field name="arch" type="xml">
+            <form>
+                <tree>
+                    <field name="code" />
+                    <field name="name" />
+                    <field name="FoundedYear" />
+                </tree>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_dept_search">
+        <field name="name">sm.student.dept.search</field>
+        <field name="model">sm.student.dept</field>
+        <field name="arch" type="xml">
+            <search string="sm.student.dept">
+                <field name="name" />
+                <field name="code" />
+                <separator />
+            </search>
+
+        </field>
+    </record>
+    <!-- Tạo action -->
+    <record id="action_sm_student_dept_view" model="ir.actions.act_window">
+        <field name="name">Khoa</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sm.student.dept</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="sm_menu_category_student_dept"
+        name="Khoa"
+        parent="sm_menu_category"
+        action="action_sm_student_dept_view"
+        sequence="10" />
+</odoo>
