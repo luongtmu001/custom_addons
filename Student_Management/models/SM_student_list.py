@@ -9,11 +9,11 @@ class studentManagementStudentList(models.Model):
     _inherit = 'mail.thread'
     _description = "Quản lý sinh viên"
 
-    code = fields.Char(size=64,string= "Mã sinh viên", required = True,tracking=True, compute='_check_student_code')
+    code = fields.Char(size=64,string= "Mã sinh viên", required = True,tracking=True)
     name = fields.Char(string= "Tên sinh vên", required=True)
     address =  fields.Char(string= "Địa chỉ hiện tại", required=True)
     home_town =  fields.Char(string= "Quê quán", required=True)
-    class_no = fields.Char(string="Lớp hành chính", required= True)
+    class_no = fields.Many2one('sm.class', string="Lớp hành chính",required= True)
     birthday = fields.Date(string="Ngày sinh", required=True)
     id_card_no = fields.Char(string="Số CMND")
     id_card_date = fields.Date(string="Ngày cấp", required=True)
@@ -23,7 +23,7 @@ class studentManagementStudentList(models.Model):
     image = fields.Binary(string="Ảnh", attachment=True)
     email = fields.Char(string="Email")
 
-    @api.onchange('code')
+    @api.constrains('code')
     def _check_student_code(self):
         for student in self:
             if not re.match(STUDENT_CODE_REGEX, student.code):

@@ -6,7 +6,6 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-
                     <group>
                         <field name="code" />
                         <field name="name" />

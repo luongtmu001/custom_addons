@@ -2,7 +2,7 @@
 <odoo>
 
     <menuitem id="sm_menu_root"
-              name="Quản lý sinh viên"
+              name="Quản lý trường học"
               sequence="10"/>
 
     <menuitem id="sm_menu_category"
@@ -30,4 +30,32 @@
               parent="sm_menu_category"
               sequence="10"/>          
 
+    <menuitem id="sm_menu_category_student_ct"
+              name="Chương trình đào tạo"
+              parent="sm_menu_category"
+              sequence="10"/>
+
+    <menuitem id="sm_menu_category_student_major"
+              name="Ngành học"
+              parent="sm_menu_category"
+              sequence="10"/>
+
+    <menuitem id="sm_menu_category_class"
+                  name="Lớp học"
+                  parent="sm_menu_category"
+                  sequence="10"/>
+
+    <menuitem id="sm_menu_category_subject"
+                  name="Môn học"
+                  parent="sm_menu_category"
+                  sequence="10"/>
+
+    <menuitem id="sm_menu_category_lecture"
+                  name="Giảng khoa"
+                  parent="sm_menu_category"
+                  sequence="10"/>
+    <!--menuitem id="sm_menu_category_student_category"
+              name="Danh mục chung"
+              parent="sm_menu_category"
+              sequence="10"/-->
 </odoo>

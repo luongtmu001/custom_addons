@@ -2,3 +2,8 @@ from . import SM_student_list
 from . import SM_schoolyear
 from . import SM_category
 from . import SM_student_dept
+from . import SM_student_ct
+from . import SM_category_majors
+from . import SM_category_class
+from . import SM_category_subject
+from . import SM_category_lecture

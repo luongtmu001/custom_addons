@@ -2,12 +2,10 @@ from odoo import fields, models, api, _
 from odoo.exceptions import ValidationError
 import re
 
-class studentManagementDept(models.Model): 
-    _name = "sm.student.dept"
+class studentManagementChuongTrinh(models.Model): 
+    _name = "sm.student.chuongtrinh"
     _inherit = 'sm.category' # _inherits là đa kế thừa, _inherit là đơn kế thừa
-    _description = "Khoa"
-
-    FoundedYear = fields.Integer(string="Thời gian thành lập", required=True)
+    _description = "Chương trình đào tạo"
 
 
 

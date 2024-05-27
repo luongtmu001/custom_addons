@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_sm_student_ct_form">
+        <field name="name">Chương trình đào tạo</field>
+        <field name="model">sm.student.chuongtrinh</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <div>
+                        <h2>Cập nhật chương trình đào tạo</h2>
+                    </div>
+                    <!-- <button string="Lưu" type="object" name=""/>
+                    <button string="Hủy" type="object" name="" class="oe_highlight"/> -->
+                     <!-- Các thẻ khác như statusbar có thể được thêm vào đây -->
+                </header>
+                <sheet>
+                    <group>
+                        <field name="code" />
+                        <field name="name" />
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </form>
+
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_ct_tree">
+        <field name="name">Danh sách chương trình đào tạo</field>
+        <field name="model">sm.student.chuongtrinh</field>
+        <field name="arch" type="xml">
+            <form>
+                <tree>
+                    <field name="code" width="70px"/>
+                    <field name="name" width="300px" />
+                </tree>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sm_student_ct_search">
+        <field name="name">sm.student.chuongtrinh.search</field>
+        <field name="model">sm.student.chuongtrinh</field>
+        <field name="arch" type="xml">
+            <search string="sm.student.chuongtrinh">
+                <field name="name" />
+                <field name="code" />
+                <separator />
+            </search>
+
+        </field>
+    </record>
+    <!-- Tạo action -->
+    <record id="action_sm_student_ct_view" model="ir.actions.act_window">
+        <field name="name">Chương trình đào tạo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sm.student.chuongtrinh</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="sm_menu_category_student_ct"
+        name="Chương trình đào tạo"
+        parent="sm_menu_category"
+        action="action_sm_student_ct_view"
+        sequence="10" />
+</odoo>

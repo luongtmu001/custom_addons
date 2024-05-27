@@ -9,12 +9,11 @@ class studentManagementSchoolYear(models.Model):
     _inherit = 'mail.thread'
     _description = "Danh sách khóa học"
 
-    code = fields.Char(size=64,string= "Mã khóa học", required = True,tracking=True, compute='_check_schoolyear_code')
+    code = fields.Char(size=64,string= "Mã khóa học", required = True,tracking=True)
     name = fields.Char(string= "Tên khóa học", required=True)
     start_year = fields.Date(string="Thời gian bắt đầu", required=True)
-    end_year = fields.Date(string="Thời gian bắt đầu", required=True)
-
-    @api.depends('code')
+    end_year = fields.Date(string="Thời gian kết thúc", required=True)
+    @api.constrains('code')
     def _check_schoolyear_code(self):
         for sy in self:
             if not re.match(SCHOOL_YEAR_CODE_REGEX, sy.code):

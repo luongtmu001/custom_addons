@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_sm_student_category_form">
+            <field name="name">Danh mục</field>
+            <field name="model">sm.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                Cập nhật thông tin
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="code"/>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_sm_student_category_tree">
+            <field name="name">Danh sách</field>
+            <field name="model">sm.category</field>
+            <field name="arch" type="xml">
+                <form>
+                    <tree>
+                        <field name="code"/>
+                        <field name="name"/>
+                    </tree>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_sm_student_category_search">
+            <field name="name">sm.category.search</field>
+            <field name="model">sm.category</field>
+            <field name="arch" type="xml">
+                <search string="sm.category">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <separator/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Tạo action -->
+        <record id="action_sm_student_category_view" model="ir.actions.act_window">
+            <field name="name">Khoa</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">sm.category</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="sm_menu_category_student_category"
+              name="Danh mục chung"
+              parent="sm_menu_category"
+                  action="action_sm_student_category_view"
+              sequence="10"/>
+    </data>
+</odoo>
